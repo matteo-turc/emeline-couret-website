@@ -11,7 +11,12 @@
     <header id="header">
         <nav>
             <div class="logo">ENTREPRISE</div>
-            <ul class="nav-links">
+            <button class="burger-menu" id="burgerMenu" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#apropos">À propos</a></li>
@@ -19,6 +24,9 @@
             </ul>
         </nav>
     </header>
+
+    <!-- Overlay pour le menu mobile -->
+    <div class="menu-overlay" id="menuOverlay"></div>
 
     <!-- Hero Section -->
     <section id="accueil" class="hero">
