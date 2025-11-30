@@ -44,10 +44,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Intersection Observer for scroll animations
+// Intersection Observer for scroll animations - optimized for faster triggering
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.075,
+    rootMargin: '0px 0px 100px 0px' // Augmenté de -50px à 100px pour anticiper
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -90,16 +90,28 @@ function animateStats(element) {
     });
 }
 
-// Add stagger delay to service cards
+// Add stagger delay to service cards - réduit pour plus de réactivité
 const serviceCards = document.querySelectorAll('.service-card');
 serviceCards.forEach((card, index) => {
-    card.style.transitionDelay = `${index * 0.2}s`;
+    card.style.transitionDelay = `${index * 0.05}s`; // Réduit de 0.1s à 0.05s
 });
 
-// Add stagger delay to contact cards
+// Add stagger delay to specialite cards
+const specialiteCards = document.querySelectorAll('.specialite-card');
+specialiteCards.forEach((card, index) => {
+    card.style.transitionDelay = `${index * 0.05}s`;
+});
+
+// Add stagger delay to formule cards - réduit pour plus de réactivité
+const formuleCards = document.querySelectorAll('.formule-card');
+formuleCards.forEach((card, index) => {
+    card.style.transitionDelay = `${index * 0.05}s`; // Réduit de 0.1s à 0.05s
+});
+
+// Add stagger delay to contact cards - réduit pour plus de réactivité
 const contactCards = document.querySelectorAll('.contact-card');
 contactCards.forEach((card, index) => {
-    card.style.transitionDelay = `${index * 0.2}s`;
+    card.style.transitionDelay = `${index * 0.05}s`; // Réduit de 0.1s à 0.05s
 });
 
 // Add parallax effect to hero section (subtle)
