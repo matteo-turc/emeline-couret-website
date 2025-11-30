@@ -9,10 +9,31 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Menu burger toggle
+const burgerMenu = document.getElementById('burgerMenu');
+const navLinks = document.getElementById('navLinks');
+const menuOverlay = document.getElementById('menuOverlay');
+
+function toggleMenu() {
+    burgerMenu.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    menuOverlay.classList.toggle('active');
+    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+}
+
+burgerMenu.addEventListener('click', toggleMenu);
+menuOverlay.addEventListener('click', toggleMenu);
+
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
+        
+        // Fermer le menu mobile si ouvert
+        if (navLinks.classList.contains('active')) {
+            toggleMenu();
+        }
+        
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             target.scrollIntoView({
